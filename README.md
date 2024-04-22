@@ -1,6 +1,6 @@
 # Implantação de Aplicação Python usando Docker
 
-Este repositório contém os passos necessários para implantar uma aplicação Python usando Docker.
+Este repositório contém os passos necessários para implantar uma aplicação Python usando Docker, solicitado pelo professor.
 
 ## Pré-requisitos
 
@@ -48,7 +48,13 @@ Para executar o container, execute o seguinte comando:
 ```bash
 docker container run --rm dimmoney-python
 ```
-### Integrantes do grupo
+
+## Outros Desafios
+Além da aplicação com Python, nosso grupo enfrentou outros desafios interessantes que complementam a avaliação da disciplina de DevOps. Confira os repositórios de cada desafio abaixo:
+- [Desafio DockerFile com Java](https://github.com/Fabs0602/desafio-devops-java)
+- [Desafio DockerFile com Node.Js](https://github.com/biancaroman/desafio-devops-nodejs)
+
+## Integrantes do grupo
 <table>
   <tr>
     <td align="center">
