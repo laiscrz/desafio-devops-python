@@ -17,35 +17,79 @@ https://github.com/laiscrz/desafio-devops-python.git
 ### 2. Criar o Dockerfile:
 - Crie um Dockerfile com as seguintes instruções:
 ````dockerfile
-# Use a imagem Python 3.9 como imagem base
-From python:3.9-slim
+# Use a imagem Python na versão 3.9-slim como base
+FROM python:3.9-slim
 
 # Defina o diretório de trabalho como /app
 WORKDIR /app
 
-# Defina a variável de ambiente PYTHON_ENV
-ARG PYTHON_ENV
+# Defina um argumento chamado app_python para receber o nome do arquivo Python
+ARG app_python='test'
 
-# Defina o diretório de trabalho como /app e sete a variável de ambiente PYTHON_ENV
-ENV PYTHON_ENV=$PYTHON_ENV
+# Defina a variável de ambiente PYTHON_ENV com o nome do arquivo Python fornecido
+ENV PYTHON_ENV=${app_python}
 
-# Copie os arquivos do diretório atual para o diretório de trabalho
-COPY . .
+# Copie o arquivo Python especificado para o diretório de trabalho (/app) no contêiner
+COPY ${app_python} .
 
-# Rode o script Python aprm99675.py quando o container for iniciado
-CMD ["python", "apprm99675.py"]
-```
+# Configure o comando padrão para executar o aplicativo Python
+CMD python ${PYTHON_ENV}
 ````
 
 
 ### 3. Criar a imagem do Docker:
 Para criar a imagem do Docker, execute o seguinte comando:
-```
-docker build -t dimmoney-python --build-arg PYTHON_ENV=my_app .
+```bash
+docker build -t dimmoney-python --build-arg app_python=apprm99675.py .
 ```
 
 ### 4. Executar o container:
 Para executar o container, execute o seguinte comando:
-```
+```bash
 docker container run --rm dimmoney-python
 ```
+### Integrantes do grupo
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/biancaroman">
+        <img src="https://avatars.githubusercontent.com/u/128830935?v=4" width="100px;" border-radius='50%' alt="Bianca Román's photo on GitHub"/><br>
+        <sub>
+          <b>Bianca Román</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/charlenefialho">
+        <img src="https://avatars.githubusercontent.com/u/94643076?v=4" width="100px;" border-radius='50%' alt="Charlene Aparecida's photo on GitHub"/><br>
+        <sub>
+          <b>Charlene Aparecida</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/laiscrz">
+        <img src="https://avatars.githubusercontent.com/u/133046134?v=4" width="100px;" alt="Lais Alves's photo on GitHub"/><br>
+        <sub>
+          <b>Lais Alves</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LuccaRaphael">
+        <img src="https://avatars.githubusercontent.com/u/127765063?v=4" width="100px;" border-radius='50%' alt="Lucca Raphael's photo on GitHub"/><br>
+        <sub>
+          <b>Lucca Raphael</b>
+        </sub>
+      </a>
+    </td>
+     <td align="center">
+      <a href="https://github.com/Fabs0602">
+        <img src="https://avatars.githubusercontent.com/u/111320639?v=4" width="100px;" border-radius='50%' alt="Fabricio Torres's photo on GitHub"/><br>
+        <sub>
+          <b>Fabricio Torres</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>

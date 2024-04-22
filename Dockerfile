@@ -1,11 +1,11 @@
 FROM python:3.9-slim
- 
+
 WORKDIR /app
 
-ARG PYTHON_ENV
+ARG app_python='test'
 
-ENV PYTHON_ENV=$APP_Python
+ENV PYTHON_ENV=${app_python}
  
-COPY . .
- 
-CMD ["python", "apprm99675.py"]
+COPY ${app_python} .
+
+CMD python ${PYTHON_ENV}
